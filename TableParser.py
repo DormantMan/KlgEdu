@@ -32,13 +32,16 @@ class TableParser:
         for row in table.find_all('tr'):
             column_marker = 0
             columns = row.find_all('td')
+            j = -1
             for column in columns:
+                j += 1
                 ans = column.text
-                for i in str(column).split('>'):
-                    yet = i.split('<')[0]
-                    if yet in column.text and yet != '':
-                        ans = i.split('<')[0]
-                        break
+                if j not in (0, 1, len(columns)-1):
+                    for i in str(column).split('>'):
+                        yet = i.split('<')[0]
+                        if yet in column.text and yet != '':
+                            ans = i.split('<')[0]
+                            break
                 df.iat[row_marker, column_marker] = str(ans)
                 column_marker += 1
             if len(columns) > 0:
@@ -51,3 +54,4 @@ class TableParser:
                 pass
 
         return df
+    
