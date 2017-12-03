@@ -12,4 +12,4 @@
 	'https://contest.yandex.ru/contest/5055/standings/':'Простые задачи',
 	'https://contest.yandex.ru/contest/5878/standings/':'Стек и очередь',
 	'https://contest.yandex.ru/contest/6053/standings/':'Теоретико числовые алгоритмы'
-  }
+ 	}
