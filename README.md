@@ -34,7 +34,7 @@ and output (back end code generation) stages of a compiler.
 
 ### Installation
 
-Install [Python 3.6.2](python.org)
+Install [Python 3.6.2](https://python.org)
 
 after install you can check your python version
 
