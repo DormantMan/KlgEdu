@@ -474,11 +474,32 @@ class KlgEdu(KlgEduInfo):
         return ['background-color: %s' % root[int(int(v) / yet * 16)] for v in s]
 
     def oks_check(self, s):
-        yet = '#d9ffb3'
-        return
+        root = [
+            "#ffe5e5",
+            "#ffece5",
+            "#fff2e5",
+            "#fff9e5",
+            "#ffffe5",
+            "#f9ffe5",
+            "#f2ffe5",
+            "#ecffe5",
+            "#e5ffe5",
+            "#e5ffec",
+            "#e6fff2",
+            "#e5fff2",
+            "#e5fff9",
+            "#e5ffff",
+            "#e5f9ff",
+            "#e5f2ff",
+            "#e5ecff"
+        ]
+        return ['background-color: %s' % root[int(int(float(str(v).replace('%', ''))) / 100 * 16)] for v in s]
 
     def gen_table(self, d):
-        d['MAX'] = {'Всего': sum([i[1] for i in self.white_list_tasks.values()])}
+        d['MAX'] = {
+            'Всего': sum([i[1] for i in self.white_list_tasks.values()]),
+            'Процент': '100%'
+        }
         for i in self.white_list_tasks.values():
             d['MAX'][i[0]] = i[1]
         df = pd.DataFrame(data=d)
@@ -490,7 +511,9 @@ class KlgEdu(KlgEduInfo):
             dict(selector="caption", props=[("caption-side", "bottom")])
         ]
 
-        html = df.T.style.apply(self.highlight_max, subset=['Всего']).set_table_styles(styles).render()
+        html = df.T.style.apply(self.highlight_max, subset=['Всего']) \
+            .apply(self.oks_check, subset=['Процент']) \
+            .set_table_styles(styles).render()
         return html
 
     def get_table(self, hidden=False):
