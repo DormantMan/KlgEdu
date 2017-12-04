@@ -2,14 +2,13 @@
 # -*- coding: utf-8 -*-
 
 import os
-import sys
-import time
 import pickle
+import sys
 import threading
+import time
 import webbrowser
-from pathlib import Path
 from getpass import getpass
-
+from pathlib import Path
 
 #
 #
@@ -472,14 +471,14 @@ class KlgEdu(KlgEduInfo):
             '#2c7ae0'
         ]
         yet = sum([i[1] for i in self.white_list_tasks.values()])
-        return ['background-color: %s' % root[int(int(v)/yet*16)] for v in s]
+        return ['background-color: %s' % root[int(int(v) / yet * 16)] for v in s]
 
     def oks_check(self, s):
         yet = '#d9ffb3'
         return
 
     def gen_table(self, d):
-        d['MAX'] = {'Всего':sum([i[1] for i in self.white_list_tasks.values()])}
+        d['MAX'] = {'Всего': sum([i[1] for i in self.white_list_tasks.values()])}
         for i in self.white_list_tasks.values():
             d['MAX'][i[0]] = i[1]
         df = pd.DataFrame(data=d)
@@ -573,6 +572,8 @@ class KlgEdu(KlgEduInfo):
 
         print('Save HTML as "%s".' % filename)
 
+        yet = sum([i[1] for i in self.white_list_tasks.values()])
+
         with open(filename, 'w') as file:
             users = self.users
             for i in users:
@@ -580,8 +581,9 @@ class KlgEdu(KlgEduInfo):
                 for j in sorted(users[i]):
                     users[i][j] = users[i][j][1]
                     s += users[i][j]
-                    #users[i][j] = ' '.joim(users[i][j][0])
+                    # users[i][j] = ' '.joim(users[i][j][0])
                 users[i]['Всего'] = s
+                users[i]['Процент'] = str(round(s / yet * 100, 2)) + '%'
             table = self.gen_table(users)
             file.write(self.FormHtml % (
                 'Результат на %s' % time.asctime(),
