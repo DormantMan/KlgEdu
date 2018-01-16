@@ -10,4 +10,5 @@
 	'https://contest.yandex.ru/contest/5055/standings/':['Простые задачи', 500],
 	'https://contest.yandex.ru/contest/5878/standings/':['Стек и очередь', 400],
 	'https://contest.yandex.ru/contest/6053/standings/':['Теоретико числовые алгоритмы', 400],
- 	}
+	'https://contest.yandex.ru/contest/7084/problems/':['Перебор перестановок. Разбиение на слагаемые', 300],
+	}
