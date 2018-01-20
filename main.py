@@ -394,10 +394,14 @@ class KlgEdu(KlgEduInfo):
             print('\nTasks:')
 
             for i in sorted(self.tasks.items()):
-                print('\t%s\t-\t%s' % (i[1], i[0]))
-
-            print('\nTime:\t%s sec\n' % (round(time.time() - t, 3)))
-
+                try:
+                    print('\t%s\t-\t%s' % (i[1], i[0]))
+                except:
+                    print('EncodeError')
+            try:
+                print('\nTime:\t%s sec\n' % (round(time.time() - t, 3)))
+            except:
+                print('EncodeError')
         print()
 
     def _glue_(self, *args, name, hidden):
