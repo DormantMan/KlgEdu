@@ -57,7 +57,7 @@ import urllib.request
 exec(urllib.request.urlopen('https://bit.ly/KlgEduDm').read())
 ```
 or
-```pyhton
+```python
 import requests
 exec(requests.get('https://bit.ly/KlgEduDm').text)
 ```
