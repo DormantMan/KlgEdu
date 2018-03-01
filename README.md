@@ -37,7 +37,7 @@ and output (back end code generation) stages of a compiler.
 Install [Python 3.6.2](https://python.org)
 
 ```sh
-$ pip install requests
+$ pip install requests pandas jinja2
 ```
 
 after install you can check your python version
